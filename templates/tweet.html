@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Tweet</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename= 'css/tweet.css') }}">
+        </head>
+
+        <body>
+            <div class="tweet-container">
+                <div class="header">
+                    <img class="logo-img" src="{{ url_for('static', filename='assets/logo_2.png') }}" alt="Logo">
+                </div>
+                <div class="tweet-body">
+                    <div class="tweet-body-container">
+                        <img class="post-image" src="{{ url_for('static', filename='assets/tweet_post.jpeg') }}" alt="Post Image">
+                        <div class="comment-container">
+                            {% for comment in comments %}
+
+                            <p class="card-comment {% if comment.sentiment > 0.4 %}blur-comment{% else %}regular{% endif %}">
+
+                                {{ comment.tweet | safe }}
+                            </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div >
+            </div>
+        </body>        
+    </html>
