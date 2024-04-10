@@ -19,6 +19,7 @@ load_model = keras.models.load_model(os.getcwd() + "/notebook/model.h5")
 with open(os.getcwd() + '/notebook/tokenizer.pickle', 'rb') as handle:
     load_tokenizer = pickle.load(handle)
 
+result = {};
 
 @app.route('/')
 def index() :
