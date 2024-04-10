@@ -8,5 +8,5 @@ htmlcov/
 docs/_build/
 dist/
 venv/
-notebooks/labeled_data.csv
-notebooks/train.csv
+notebook/labeled_data.csv
+notebook/train.csv
