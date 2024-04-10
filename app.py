@@ -40,7 +40,7 @@ def update_json() :
         with open('updated_data.json') as file:
             data = json.load(file)
     else :
-        with open(os.getcwd() + '\data.json', 'r', encoding='utf-8') as file:
+        with open('data.json', 'r', encoding='utf-8') as file:
             data = json.load(file)
 
 
