@@ -21,7 +21,7 @@ with open(os.getcwd() + '/notebook/tokenizer.pickle', 'rb') as handle:
 
 result = {};
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index() :
     return render_template('index.html')
 
@@ -51,7 +51,7 @@ def update_json() :
     return data;
 
 
-@app.route('/tweets')
+@app.route('/tweets', methods=['GET'])
 def navigateToTweets() :
     # with open('updated_data.json', 'r') as file:
     #     data = json.load(file)
