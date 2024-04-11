@@ -60,10 +60,15 @@ def navigateToTweets() :
 
     return render_template('tweet.html', comments=update_json())
 
-def addTweets(tweet) :
-    tweet['sentiment'] = predict_sentiment(tweet['tweet'])
-
-    return tweet
+@app.route('/add_tweet', methods=['POST'])
+def addTweets() :
+    # print(request);
+    data = request.get_json()
+    tweet = data['tweet']
+    data['sentiment'] = float(predict_sentiment(tweet))
+    data['tweet'] = replace_at_words(replace_hashtags(tweet))
+    return data
+    # return request.get_json()
 
 def clean_text(text) : 
     text = str(text).lower()

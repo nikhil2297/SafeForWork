@@ -15,17 +15,26 @@
                 <div class="tweet-body">
                     <div class="tweet-body-container">
                         <img class="post-image" src="{{ url_for('static', filename='assets/tweet_post.jpeg') }}" alt="Post Image">
-                        <div class="comment-container">
-                            {% for comment in comments %}
-
-                            <p class="card-comment {% if comment.sentiment > 0.4 %}blur-comment{% else %}regular{% endif %}">
-
-                                {{ comment.tweet | safe }}
-                            </p>
-                            {% endfor %}
+                        <div>
+                            <div class="comment-form">
+                                <textarea type="text" id="comment-input" placeholder="Add a comment..."> </textarea>
+                                <button class="submit-button" id="submit-comment">Submit</button>
+                            </div>
+                            <div class="comment-container">
+                                {% for comment in comments %}
+    
+                                <p class="card-comment {% if comment.sentiment > 0.4 %}blur-comment{% else %}regular{% endif %}">
+    
+                                    {{ comment.tweet | safe }}
+                                </p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div >
             </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="{{ url_for('static', filename= 'tweet_script.js') }}"></script>
         </body>        
     </html>
